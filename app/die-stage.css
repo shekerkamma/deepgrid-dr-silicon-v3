@@ -5,7 +5,7 @@
   --dg-line: #ffffff1c;
   --dg-accent: #c6a379;
   --dg-frozen: #7486ab;
-  --dg-mono: 'Courier New', ui-monospace, monospace;
+  --dg-mono: var(--font-mono);
   --dg-ink-soft: #9a9186;
 }
 

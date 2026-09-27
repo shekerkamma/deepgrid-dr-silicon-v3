@@ -59,7 +59,7 @@
   position: absolute; right: 12px; bottom: 12px; padding: 5px 9px;
   border-radius: var(--sc-radius-sm);
   background: color-mix(in srgb, var(--background) 82%, transparent);
-  font: var(--text-meta) / 1.3 'Courier New', monospace; letter-spacing: var(--sc-track-meta);
+  font: var(--text-meta) / 1.3 var(--font-mono); letter-spacing: var(--sc-track-meta);
   text-transform: uppercase; color: var(--foreground);
 }
 .pf-line-head {
@@ -89,7 +89,7 @@
 .pf-card-body { display: flex; flex-direction: column; flex: 1; gap: 10px; padding: 20px 22px 18px; }
 .pf-meta {
   display: flex; justify-content: space-between; gap: 12px;
-  font: var(--text-meta) / 1.4 'Courier New', monospace; letter-spacing: var(--sc-track-meta);
+  font: var(--text-meta) / 1.4 var(--font-mono); letter-spacing: var(--sc-track-meta);
   text-transform: uppercase; color: var(--ink-2);
 }
 .pf-meta .num { color: var(--copper); }

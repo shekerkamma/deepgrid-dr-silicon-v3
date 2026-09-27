@@ -69,7 +69,7 @@ html .pf-card p, html .pf-used li { font-size: .95rem; }
 html .pf-card dl { margin-top: 1rem; }
 html .pf-card dd { font-size: .95rem; }
 html .pf-card dl div { flex-direction: column; }
-html .pf-meta { font-family: Arial, Helvetica, sans-serif; letter-spacing: .02em; }
+html .pf-meta { font-family: var(--font-text); letter-spacing: .02em; }
 html .pf-open { align-items: start; }
 html .pf-line-head { gap: .75rem 2rem; }
 html .pf-scene figcaption { position: static; background: var(--popover); padding: .75rem 1rem; color: var(--ink-2); border-top: 1px solid var(--rule); }
@@ -96,9 +96,9 @@ html .view-procurement .dr-table tbody td:nth-child(2) { color: var(--foreground
 html .dr-stress { padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--sc-radius-lg); background: var(--popover); }
 html .dr-stress-pull { min-height: 56px; }
 html .dr-stress-toggle[aria-pressed='true'] { background: var(--accent); }
-html .view-company .dr-stats-grid strong { font-family: ui-monospace, monospace; font-size: 1.4rem; }
+html .view-company .dr-stats-grid strong { font-family: var(--font-mono); font-size: 1.4rem; }
 /* Q&A and contact: comfortable controls and a consistent reading measure. */
-html .dr-ask-toggle-btn, html .dr-ask-chip { min-height: 44px; font-family: Arial, Helvetica, sans-serif; }
+html .dr-ask-toggle-btn, html .dr-ask-chip { min-height: 44px; font-family: var(--font-text); }
 html .dr-ask-chip { padding: .6rem .85rem; }
 html .dr-ask-chip-text { font-size: .875rem; }
 html .dr-ask-prompts { gap: .6rem; }

@@ -40,7 +40,7 @@
 .ps-block[data-area='mtr'] { grid-area: mtr; } .ps-block[data-area='sns'] { grid-area: sns; } .ps-block[data-area='com'] { grid-area: com; }
 .ps-block strong { font-size: var(--text-control); font-weight: 600; }
 .ps-short { font-size: var(--text-meta); color: var(--ink-2); line-height: 1.45; }
-.ps-code { font: var(--text-meta) 'Courier New', monospace; letter-spacing: .08em; color: var(--copper); }
+.ps-code { font: var(--text-meta) var(--font-mono); letter-spacing: .08em; color: var(--copper); }
 .ps-block:hover { border-color: var(--copper); }
 .ps-block[aria-pressed='true'] { border-color: var(--copper); background: color-mix(in srgb, var(--copper) 10%, var(--background)); }
 
@@ -55,7 +55,7 @@
 .ps-detail h3 { font-family: var(--serif); font-weight: 400; font-size: var(--heading-card); }
 .ps-detail ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: var(--text-control); line-height: 1.55; }
 .ps-why-line { font-size: var(--text-control); color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 12px; }
-.ps-why-line span { display: block; font: var(--text-meta) 'Courier New', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--copper); margin-bottom: 4px; }
+.ps-why-line span { display: block; font: var(--text-meta) var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--copper); margin-bottom: 4px; }
 
 /* ---------- loop cost ---------- */
 .ps-loop { list-style: none; margin: 0; padding: 0; display: grid; }

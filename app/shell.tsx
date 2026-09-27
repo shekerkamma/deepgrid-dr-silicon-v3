@@ -2,7 +2,8 @@
 
 import {useEffect, useState} from 'react';
 import {ArrowUpRight, ArrowRight, ArrowLeft, Menu, X} from 'lucide-react';
-import {navRoutes, byId, nextRoute, prevRoute, resolveTarget, url, type RouteId} from './routes';
+import {byId, nextRoute, prevRoute, resolveTarget, url, type RouteId} from './routes';
+import {MegaNav} from './mega-nav';
 import {useReveal, useScrollVars} from './motion';
 import {useDraw, useRail} from './devices';
 
@@ -33,22 +34,10 @@ export function Shell({
 
   useScrollVars();
   useReveal(route);
+  useScrollRegions();
   useDraw(route);
   useRail(route);
 
-  const links = navRoutes.map(r => (
-    <a
-      key={r.id}
-      href={href(r.href)}
-      className={route === r.id || here.parent === r.id ? 'active' : ''}
-      aria-current={route === r.id ? 'page' : undefined}
-      onClick={() => setMenu(false)}
-    >
-      {r.id === 'home'
-        ? <><img className="nav-home-icon" src={url('/brand/deepgrid-d-64.png')} alt="" aria-hidden="true" width={20} height={20}/>Deepgrid Semi</>
-        : r.label}
-    </a>
-  ));
 
   return (
     <div className={'site-shell view-' + route}>
@@ -66,12 +55,12 @@ export function Shell({
         </button>
       </header>
 
-      <nav className="main-nav" aria-label="Primary navigation">{links}</nav>
+      <div className="main-nav"><MegaNav route={route}/></div>
 
       {menu && (
         <div className="navigation-sheet mobile-sheet" role="dialog" aria-modal="true" aria-label="Navigation">
           <button className="mobile-sheet-close" aria-label="Close navigation" onClick={() => setMenu(false)}><X aria-hidden="true"/></button>
-          <nav aria-label="Primary">{links}</nav>
+          <MegaNav route={route} label="Primary" onNavigate={() => setMenu(false)}/>
         </div>
       )}
 
@@ -129,6 +118,29 @@ export function Shell({
       </footer>
     </div>
   );
+}
+
+/** A table or figure that scrolls sideways must be reachable by keyboard (WCAG 2.1.1; axe
+ *  scrollable-region-focusable). Only wrappers that actually overflow get a tab stop, named from the table's
+ *  caption or the image's alt text, and the check reruns when the layout width changes. */
+function useScrollRegions() {
+  useEffect(() => {
+    const mark = () => document.querySelectorAll<HTMLElement>('.table-scroll, .st-table-scroll, .figure-scroll').forEach((el) => {
+      const scrolls = el.scrollWidth > el.clientWidth + 1;
+      if (scrolls && !el.hasAttribute('tabindex')) {
+        el.tabIndex = 0;
+        el.setAttribute('role', 'region');
+        const name = el.querySelector('caption')?.textContent?.trim() || el.querySelector('img')?.getAttribute('alt') || 'Scrollable content';
+        el.setAttribute('aria-label', name + ' (scrolls sideways)');
+        el.dataset.scrollRegion = '';
+      } else if (!scrolls && el.dataset.scrollRegion !== undefined) {
+        el.removeAttribute('tabindex'); el.removeAttribute('role'); el.removeAttribute('aria-label'); delete el.dataset.scrollRegion;
+      }
+    });
+    const t = window.setTimeout(mark, 300);
+    addEventListener('resize', mark);
+    return () => { window.clearTimeout(t); removeEventListener('resize', mark); };
+  }, []);
 }
 
 /** prefers-reduced-motion, read once per page. */

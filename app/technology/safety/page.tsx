@@ -9,6 +9,7 @@ import {PRE_SILICON} from '../../copy';
 import FaultTrace from '../../fault-trace';
 import {url} from '../../routes';
 import Related from '../../related';
+import {SafetyScene} from '../../three/blocks';
 
 export default function Page() {
   const {href, go} = useNav();
@@ -21,7 +22,6 @@ export default function Page() {
     <Shell route="safety">
       <section className="page-wrap">
         <SectionHead
-          tag="02.1 / SAFETY"
           title="From a wrong value to a safe bridge"
           copy="Software self-test runs periodically and cannot see a fault between runs. DG32-LITE compares every value the CPU commits, as it commits it, and the path from mismatch to a switched-off bridge never passes through firmware."
         />
@@ -37,6 +37,7 @@ export default function Page() {
             </div>
           </>
         }/>
+        <SafetyScene/>
         <p className="disclaimer">{PRE_SILICON}</p>
 
         {/* Motion explainer (HyperFrames + GSAP, rendered to MP4; narration Kokoro bm_george).

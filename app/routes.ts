@@ -21,27 +21,37 @@ export function url(path: string): string {
 export type RouteId =
   | 'home' | 'products' | 'technology' | 'safety' | 'control' | 'die'
   | 'package' | 'applications' | 'evidence' | 'resources' | 'procurement' | 'ask'
-  | 'company' | 'contact';
+  | 'company' | 'contact' | 'videos' | 'docs' | 'about' | 'team' | 'recognition'
+  | 'uc-motors' | 'uc-vehicles' | 'uc-defence' | 'uc-grid' | 'uc-boards';
 
-export type Route = {id: RouteId; href: string; label: string; nav?: boolean; parent?: RouteId; tag?: string};
+export type Route = {id: RouteId; href: string; label: string; nav?: boolean; parent?: RouteId};
 
 export const routes: Route[] = [
   {id: 'home',         href: '/',                        label: 'Home', nav: true},
-  {id: 'products',     href: '/products',                label: 'Products',     nav: true, tag: '01 / PRODUCT FAMILY'},
-  {id: 'technology',   href: '/technology',              label: 'Technology',   nav: true, tag: '02 / ARCHITECTURE'},
-  {id: 'safety',       href: '/technology/safety',       label: 'Safety',       parent: 'technology', tag: '02.1 / SAFETY'},
-  {id: 'control',      href: '/technology/control-loop', label: 'Control loop', parent: 'technology', tag: '02.2 / CONTROL LOOP'},
-  {id: 'die',          href: '/technology/die',          label: 'The die',      parent: 'technology', tag: '02.3 / DIE EXPLORER'},
-  {id: 'package',      href: '/technology/package',      label: 'Pinout & package', parent: 'technology', tag: '02.4 / PINOUT & PACKAGE'},
-  {id: 'applications', href: '/applications',            label: 'Applications', nav: true, tag: '03 / APPLICATIONS'},
-  {id: 'evidence',     href: '/evidence',                label: 'Evidence',     nav: true, tag: '04 / EVIDENCE'},
-  {id: 'procurement',  href: '/procurement',             label: 'Procurement',  nav: true, tag: '05 / PROCUREMENT'},
-  {id: 'resources',    href: '/resources',               label: 'Resources',    nav: true, tag: '06 / DOCUMENTS & MEDIA'},
-  {id: 'ask',          href: '/ask',                     label: 'Ask DeepGrid', nav: true, tag: '07 / SILICON INTELLIGENCE'},
-  {id: 'company',      href: '/company',                 label: 'Company',      nav: true, tag: '08 / COMPANY'},
-  // Reached from the header CTA on every page, from /company and from the footer. Kept out of
-  // the primary nav so the bar still fits a phone without scrolling sideways.
-  {id: 'contact',      href: '/contact',                 label: 'Contact',      tag: '09 / CONTACT'},
+  {id: 'products',     href: '/products',                label: 'Products',     nav: true},
+  {id: 'technology',   href: '/technology',              label: 'Technology',   nav: true},
+  {id: 'safety',       href: '/technology/safety',       label: 'Safety',       parent: 'technology'},
+  {id: 'control',      href: '/technology/control-loop', label: 'Control loop', parent: 'technology'},
+  {id: 'die',          href: '/technology/die',          label: 'The die',      parent: 'technology'},
+  {id: 'package',      href: '/technology/package',      label: 'Pinout & package', parent: 'technology'},
+  {id: 'applications', href: '/applications',            label: 'Applications', nav: true},
+  {id: 'uc-motors', href: '/use-cases/motors', label: 'Motors and drives', parent: 'applications'},
+  {id: 'uc-vehicles', href: '/use-cases/vehicles', label: 'Vehicles', parent: 'applications'},
+  {id: 'uc-defence', href: '/use-cases/defence', label: 'Defence, avionics and drones', parent: 'applications'},
+  {id: 'uc-grid', href: '/use-cases/grid', label: 'Grid and metering', parent: 'applications'},
+  {id: 'uc-boards', href: '/use-cases/boards', label: 'On nearly every board', parent: 'applications'},
+  {id: 'evidence',     href: '/evidence',                label: 'Evidence',     nav: true},
+  {id: 'procurement',  href: '/procurement',             label: 'Procurement',  nav: true},
+  {id: 'resources',    href: '/resources',               label: 'Resources',    nav: true},
+  {id: 'docs',         href: '/resources/docs',          label: 'Documentation', parent: 'resources'},
+  {id: 'videos',       href: '/resources/videos',        label: 'Videos',       parent: 'resources'},
+  {id: 'ask',          href: '/ask',                     label: 'Ask DeepGrid', nav: true},
+  {id: 'about',        href: '/about',                   label: 'Our story'},
+  {id: 'team',         href: '/about/team',              label: 'Leadership & team', parent: 'about'},
+  {id: 'recognition',  href: '/about/recognition',       label: 'Achievements', parent: 'about'},
+  {id: 'company',      href: '/company',                 label: 'DG32 in the Indian market', nav: true, parent: 'about'},
+  // A plain link at the end of the menu, and the header CTA on every page.
+  {id: 'contact',      href: '/contact',                 label: 'Contact'},
 ];
 
 export const byId = Object.fromEntries(routes.map(r => [r.id, r])) as Record<RouteId, Route>;

@@ -21,7 +21,6 @@ export default function Page() {
     <Shell route="company">
       <section className="page-wrap">
         <SectionHead
-          tag="08 / COMPANY"
           title="A silicon team in Hyderabad building for a market that is already obliged to buy domestic"
           copy="DeepGrid Semi Pvt Ltd designs motor control, condition monitoring and zonal compute on mature nodes. The bet is not that we can beat a 40 nm part on performance. It is that a ≥130 nm part designed in India can be bought where an imported one cannot."
         />

@@ -263,7 +263,7 @@
 .dr-steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
 .dr-steps li{display:grid;grid-template-columns:2.8rem minmax(0,1fr);gap:14px;padding:15px 0;border-bottom:1px solid var(--rule)}
 .dr-step-n{font:italic 1.35rem var(--serif);color:#b6a675}
-.dr-steps h4{font-weight:600;font-size:.98rem;line-height:1.4;color:#eee6d4;margin:0 0 3px}
+.dr-steps h3{font-weight:600;font-size:.98rem;line-height:1.4;color:#eee6d4;margin:0 0 3px}
 .dr-steps p{color:var(--ink-2);font-size:.93rem;line-height:1.6;margin:0}
 .dr-flows{display:grid;gap:32px}
 .dr-flows-2{grid-template-columns:repeat(2,minmax(0,1fr))}

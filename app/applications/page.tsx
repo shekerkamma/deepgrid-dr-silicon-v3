@@ -11,7 +11,6 @@ export default function Page() {
     <Shell route="applications">
       <section className="page-wrap">
         <SectionHead
-          tag="03 / APPLICATIONS"
           title="Ten chips, five kinds of system"
           copy="DeepGrid's portfolio by the systems it goes into. Open a chip for what it replaces and its annex sheet; DG32-LITE, the part on first silicon, opens into its diagnostic story and films."
         />

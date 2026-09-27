@@ -289,7 +289,6 @@ export default function AskDeepGrid({go}: {go: (hash: string) => void}) {
   return (
     <section className="page-wrap dr-ask-section">
       <SectionHead 
-        tag="08 / ASK DEEPGRID" 
         title="Ask about DG32, and every answer names its source" 
         copy="Ask about the lockstep core, the control loop, the package, the portfolio or the supply chain. Each answer cites the document and section it comes from, with the PDF one click away, so you can check it rather than take it on trust."
       />

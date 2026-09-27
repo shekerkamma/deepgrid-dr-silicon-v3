@@ -12,7 +12,6 @@ export default function Page() {
     <Shell route="resources">
       <section className="page-wrap">
         <SectionHead
-          tag="06 / DOCUMENTS & MEDIA"
           title="The documents, decks and films behind every figure"
           copy="Six source documents carry every number on this site. Each one is here as the full PDF and as a readable specification, with the architecture and datasheet decks and the narrated films made from them."
         />

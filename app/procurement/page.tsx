@@ -7,13 +7,14 @@ import {notClaimed,positionNotes,roadmapDetail} from '../detail-content';
 import {comparison,gaps,leads} from '../content';
 import Related from '../related';
 import {MotionLoop} from '../motion-loop';
+import {ShuttleScene} from '../three/blocks';
 
 export default function Page() {
   const {navigate, go} = useNav();
 
   return (
     <Shell route="procurement">
-      <section className="page-wrap"><SectionHead tag="06 / POSITION & ROADMAP" title="Where DG32 leads, and where it does not yet" copy="Measured against the STM32G0, the incumbent entry-level motor-control MCU. DG32 wins on safety hardware and control acceleration; the G0 wins on analog, memory and maturity."/>
+      <section className="page-wrap"><SectionHead title="Where DG32 leads, and where it does not yet" copy="Measured against the STM32G0, the incumbent entry-level motor-control MCU. DG32 wins on safety hardware and control acceleration; the G0 wins on analog, memory and maturity."/>
   <div className="table-scroll"><table className="dr-table dr-compare"><caption>DG32-LITE compared with the STM32G0 series</caption><thead><tr><th scope="col">Dimension</th><th scope="col">DG32-LITE</th><th scope="col">STM32G0 series</th><th scope="col">What it means</th></tr></thead><tbody>{comparison.map(([d,a,b,m])=><tr key={d}><th scope="row">{d}</th><td>{a}</td><td>{b}</td><td>{m}</td></tr>)}</tbody></table></div>
   <p className="disclaimer">STM32G0 column: public datasheet values for the STM32G0x1 / G0B1 family (Arm Cortex-M0+). DG32-LITE column: first-silicon design values, verified in simulation and static timing, not yet measured on silicon.</p>
 
@@ -25,6 +26,7 @@ export default function Page() {
   <Sec kicker="WHY THE DIFFERENCE" title="Every gap is a deliberate sequencing choice," em="and each one closes in the order that first silicon makes possible.">
    <ExplainedGrid items={positionNotes} cols={2}/>
   </Sec>
+  <ShuttleScene/>
   <Sec kicker="THE MULTI-SPIN ROADMAP" title="Closing the gaps" em="in deliberate order." copy="Each step has a job: first silicon proves the architecture, the second spin closes the largest gaps, and connectivity follows.">
    <MotionLoop wide name="roadmap-gaps" label="Animation: where the STM32G0 leads today, and the spin that closes each gap: the 12-bit ADC and embedded flash in the second spin, CAN-FD and interactive debug after; USB, package range and production maturity are not yet scheduled"/>
    <div className="dr-rail"><div className="dr-rail-stage"><div className="dr-rail-track"><ol className="dr-roadmap">{roadmapDetail.map(([when,t,what,proves])=><li key={t}><span className="mono">{when}</span><h3>{t}</h3><p>{what}</p><p className="dr-proves"><span className="mono">WHAT IT DELIVERS</span>{proves}</p></li>)}</ol></div><div className="dr-rail-progress" aria-hidden="true"><i/></div></div></div>

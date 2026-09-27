@@ -50,6 +50,8 @@ jobs:
           python3 scripts/serve-dist.py 8768 "$RUNNER_TEMP/srv" >/dev/null 2>&1 &
           until curl -sf http://127.0.0.1:8768/${{ github.event.repository.name }}/ >/dev/null; do sleep 1; done
       - run: node scripts/verify-routes.mjs http://127.0.0.1:8768/${{ github.event.repository.name }}/ verify-shots
+      # Menus by pointer, keyboard and phone sheet; URLs as people type them (/About, /about/).
+      - run: node scripts/verify-nav.mjs http://127.0.0.1:8768/${{ github.event.repository.name }}/
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
@@ -107,51 +109,9 @@ jobs:
           done
           echo "Pages did not serve $GITHUB_SHA within 10 minutes"; exit 1
       - run: node scripts/verify-routes.mjs "$SITE" verify-shots
+      - run: node scripts/verify-nav.mjs "$SITE"
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: verify-live-shots
           path: verify-shots
-
-  # Propagate this commit to the two mirror repos, so one push to v2 updates all three sites.
-  #
-  # Runs only in the source repo and only after verify-live: a mirror must never receive a commit
-  # that failed its own gate in the repo that owns it.
-  #
-  # Authenticated with one SSH deploy key per mirror, not a personal access token. GITHUB_TOKEN is
-  # scoped to the repository running the workflow and cannot push elsewhere, but the obvious
-  # alternative, an account PAT, carries `repo` across every repository the owner has. A deploy key
-  # is write access to exactly one repo, which is all this job needs. Revoking one is deleting one
-  # key from one repo and breaks nothing else.
-  mirror:
-    if: github.event_name != 'pull_request' && github.repository == 'shekerkamma/deepgrid-dr-silicon-v2'
-    needs: verify-live
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - repo: deepgrid-dr-silicon
-            secret: MIRROR_KEY_DEEPGRID_DR_SILICON
-          - repo: deepgrid-dr-silicon_new
-            secret: MIRROR_KEY_DEEPGRID_DR_SILICON_NEW
-    steps:
-      - uses: actions/checkout@v6
-        with: {fetch-depth: 0}
-      - name: Push to ${{ matrix.repo }}
-        env:
-          KEY: ${{ secrets[matrix.secret] }}
-        run: |
-          if [ -z "$KEY" ]; then
-            echo "::notice::${{ matrix.secret }} is not set, so ${{ matrix.repo }} was not updated."
-            echo "Until it is, run: npm run sync"
-            exit 0
-          fi
-          install -m 700 -d ~/.ssh
-          printf '%s\n' "$KEY" > ~/.ssh/mirror
-          chmod 600 ~/.ssh/mirror
-          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-          export GIT_SSH_COMMAND="ssh -i ~/.ssh/mirror -o IdentitiesOnly=yes"
-          git push --force "git@github.com:shekerkamma/${{ matrix.repo }}.git" \
-            "${{ github.sha }}:refs/heads/main"
-          echo "Pushed ${{ github.sha }} to ${{ matrix.repo }}"

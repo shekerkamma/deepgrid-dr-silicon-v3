@@ -55,7 +55,7 @@ function Task({t}: {t: UseCase}) {
   return (
     <li className="st-task" id={'task-' + slug(t.name)}>
       <div className="st-task-problem">
-        <h4>{t.name}</h4>
+        <h3>{t.name}</h3>
         <p>{t.detects}</p>
         {socketsFor(t.name).length > 0 && (
           <p className="st-task-where">
@@ -191,10 +191,10 @@ export default function ApplicationsStory() {
           sizes every task against four numbers.
         </p>
         <dl className="st-figs">
-          <div><dt>Scalar throughput</dt><dd className="num">12.5&nbsp;MMAC/s</dd><p>RV32IM at 50&nbsp;MHz, int8</p></div>
-          <div><dt>Model budget</dt><dd className="num">16.5&nbsp;KB</dd><p>29.5&nbsp;KB with the runtime moved to mask ROM</p></div>
-          <div><dt>Free cycles</dt><dd className="num">82&nbsp;%</dd><p>with a 10&nbsp;kHz field-oriented control loop running</p></div>
-          <div><dt>Hardware help</dt><dd>CORDIC</dd><p>sin, cos, atan2 and magnitude, already in the loop</p></div>
+          <div><dt>Scalar throughput</dt><dd className="num">12.5&nbsp;MMAC/s</dd><dd className="st-fig-note">RV32IM at 50&nbsp;MHz, int8</dd></div>
+          <div><dt>Model budget</dt><dd className="num">16.5&nbsp;KB</dd><dd className="st-fig-note">29.5&nbsp;KB with the runtime moved to mask ROM</dd></div>
+          <div><dt>Free cycles</dt><dd className="num">82&nbsp;%</dd><dd className="st-fig-note">with a 10&nbsp;kHz field-oriented control loop running</dd></div>
+          <div><dt>Hardware help</dt><dd>CORDIC</dd><dd className="st-fig-note">sin, cos, atan2 and magnitude, already in the loop</dd></div>
         </dl>
         <p className="st-aside">
           The film and the playbook count different things. The film&rsquo;s 4,700&nbsp;cycles at

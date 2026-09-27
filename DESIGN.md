@@ -1,6 +1,6 @@
 ---
 name: DG32 Silicon Site
-description: Pre-silicon technical reference for a lockstep RISC-V motor-control chip, set as a dark editorial datasheet.
+description: Pre-silicon technical reference for a lockstep RISC-V motor-control chip, set as a dark editorial datasheet. v3 (2026-09-27) sets it in self-hosted Newsreader, Inter and JetBrains Mono.
 colors:
   ink: "#101212"
   surface: "#191d1b"
@@ -16,31 +16,34 @@ colors:
   copper-ring: "#d9ac78"
   hardware: "#bf7f3b"
   cpu: "#2f9e8c"
+  overlay-shadow: "rgb(0 0 0 / .45)"
 typography:
   display:
-    fontFamily: "Georgia, 'Times New Roman', serif"
+    fontFamily: "'Newsreader Variable', Georgia, 'Times New Roman', serif"
     fontSize: "clamp(2.4rem, 3.8vw, 3.5rem)"
     lineHeight: 1.05
     letterSpacing: "-0.035em"
   headline:
-    fontFamily: "Georgia, 'Times New Roman', serif"
+    fontFamily: "'Newsreader Variable', Georgia, 'Times New Roman', serif"
     fontSize: "clamp(1.9rem, 2.6vw, 2.45rem)"
     lineHeight: 1.16
     letterSpacing: "-0.025em"
   title:
-    fontFamily: "Georgia, 'Times New Roman', serif"
+    fontFamily: "'Newsreader Variable', Georgia, 'Times New Roman', serif"
     fontSize: "clamp(1.5rem, 2.1vw, 1.95rem)"
     lineHeight: 1.22
     letterSpacing: "-0.02em"
   body:
-    fontFamily: "Arial, Helvetica, sans-serif"
+    fontFamily: "'Inter Variable', system-ui, sans-serif"
     fontSize: "0.9375rem"
     lineHeight: 1.65
     letterSpacing: "normal"
   label:
-    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    fontFamily: "'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace"
     fontSize: "0.75rem"
     letterSpacing: "0.08em"
+elevation:
+  overlay: "0 24px 48px rgb(0 0 0 / .45)"
 rounded:
   xs: "2px"
   sm: "3px"

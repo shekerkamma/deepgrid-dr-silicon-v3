@@ -6,7 +6,7 @@ import type {Explained,Step} from './detail-content';
 // Layout primitives for the detailed sections. Content lives in detail-content.ts.
 
 export function Eyebrow({children}:{children:React.ReactNode}){return <p className="eyebrow"><span/> {children}</p>}
-export function SectionHead({tag,title,copy}:{tag:string;title:string;copy:string}){return <header className="section-head"><div><h1>{title}</h1></div><p>{copy}</p></header>}
+export function SectionHead({title,copy,kicker}:{tag?:string;kicker?:string;title:string;copy:string}){return <header className="section-head"><div>{kicker&&<p className="kicker">{kicker}</p>}<h1>{title}</h1></div><p>{copy}</p></header>}
 
 export function Sec({kicker,title,em,copy,children}:{kicker:string;title:string;em?:string;copy?:React.ReactNode;children?:React.ReactNode}){
  return <section className="dr-sec"><header className="dr-sec-head"><div><p className="dr-kicker">{kicker}</p><h2 className="dr-h2">{title}{em&&<><br/><em>{em}</em></>}</h2></div>{copy&&<div className="dr-sec-copy">{typeof copy==='string'?<p>{copy}</p>:copy}</div>}</header>{children}</section>;
@@ -17,7 +17,7 @@ export function ExplainedGrid({items,cols=3}:{items:Explained[];cols?:2|3}){
 }
 
 export function Steps({steps,label}:{steps:Step[];label?:string}){
- return <ol className="dr-steps" aria-label={label}>{steps.map(([t,d],i)=><li key={t}><span className="dr-step-n">{String(i+1).padStart(2,'0')}</span><div><h4>{t}</h4><p>{d}</p></div></li>)}</ol>;
+ return <ol className="dr-steps" aria-label={label}>{steps.map(([t,d],i)=><li key={t}><span className="dr-step-n">{String(i+1).padStart(2,'0')}</span><div><h3>{t}</h3><p>{d}</p></div></li>)}</ol>;
 }
 
 export function Flows({flows}:{flows:{title:string;lead:string;steps:Step[]}[]}){

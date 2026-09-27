@@ -108,6 +108,84 @@ export const related: Record<RouteId, Related> = {
     ],
     docs: ['doc2', 'doc5'],
   },
+  'uc-motors': {
+    sections: [
+      {id: 'applications', why: 'Every chip by application, with filters and a side-by-side comparison.'},
+      {id: 'evidence', why: 'How each chip here is evidenced today, graded the same way across the portfolio.'},
+      {id: 'contact', why: 'What to tell us about your application so we can answer.'},
+    ],
+    docs: ['doc2', 'doc5'],
+  },
+  'uc-vehicles': {
+    sections: [
+      {id: 'applications', why: 'Every chip by application, with filters and a side-by-side comparison.'},
+      {id: 'evidence', why: 'How each chip here is evidenced today, graded the same way across the portfolio.'},
+      {id: 'contact', why: 'What to tell us about your application so we can answer.'},
+    ],
+    docs: ['doc2', 'doc5'],
+  },
+  'uc-defence': {
+    sections: [
+      {id: 'applications', why: 'Every chip by application, with filters and a side-by-side comparison.'},
+      {id: 'evidence', why: 'How each chip here is evidenced today, graded the same way across the portfolio.'},
+      {id: 'contact', why: 'What to tell us about your application so we can answer.'},
+    ],
+    docs: ['doc2', 'doc5'],
+  },
+  'uc-grid': {
+    sections: [
+      {id: 'applications', why: 'Every chip by application, with filters and a side-by-side comparison.'},
+      {id: 'evidence', why: 'How each chip here is evidenced today, graded the same way across the portfolio.'},
+      {id: 'contact', why: 'What to tell us about your application so we can answer.'},
+    ],
+    docs: ['doc2', 'doc5'],
+  },
+  'uc-boards': {
+    sections: [
+      {id: 'applications', why: 'Every chip by application, with filters and a side-by-side comparison.'},
+      {id: 'evidence', why: 'How each chip here is evidenced today, graded the same way across the portfolio.'},
+      {id: 'contact', why: 'What to tell us about your application so we can answer.'},
+    ],
+    docs: ['doc2', 'doc5'],
+  },
+  docs: {
+    sections: [
+      {id: 'resources', why: 'The same documents as readable specifications, with the decks and films made from them.'},
+      {id: 'evidence', why: 'How each figure in these documents was obtained, and which are not yet measured.'},
+      {id: 'ask', why: 'Query the documents instead of reading them end to end.'},
+    ],
+    docs: ['doc6', 'doc4'],
+  },
+  about: {
+    sections: [
+      {id: 'team', why: 'The founders, board, engineering organisation and the partners contracted for the silicon.'},
+      {id: 'recognition', why: 'The awards and the milestones behind them.'},
+      {id: 'company', why: 'Why DG32 fits a market that is obliged to buy domestic.'},
+    ],
+    docs: ['doc5'],
+  },
+  team: {
+    sections: [
+      {id: 'about', why: 'What the company is for, in its own words.'},
+      {id: 'contact', why: 'Where an enquiry lands, and what to tell us.'},
+    ],
+    docs: ['doc5'],
+  },
+  recognition: {
+    sections: [
+      {id: 'about', why: 'The company behind the awards.'},
+      {id: 'evidence', why: 'How the DG32 figures themselves are evidenced.'},
+    ],
+    docs: ['doc5'],
+  },
+  videos: {
+    sections: [
+      {id: 'die', why: 'The six functional groups the die tour walks across, with what each one does.'},
+      {id: 'package', why: 'Where the die sits in the 9 × 9 mm package, pin by pin.'},
+      {id: 'resources', why: 'The datasheets and architecture documents the videos are drawn from.'},
+    ],
+    docs: ['doc6', 'doc4'],
+  },
   resources: {
     sections: [
       {id: 'ask', why: 'Query the same documents instead of reading them end to end.'},

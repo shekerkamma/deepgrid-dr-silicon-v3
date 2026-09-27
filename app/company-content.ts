@@ -110,7 +110,7 @@ export const fy31Rows: PlanRow[] = [
 export const splitVerdict = {
   // Verbatim, including its em dash: this is the one place the no-em-dash rule yields, because a
   // quotation that has been re-punctuated is no longer the source's words.
-  quote: 'So the total holds and the split does not — 70 % of FY31 sits on two chips, while chips 9, 7 and 4 are planned at under a tenth of theirs. We would rebalance before an institutional round.',
+  quote: 'So the total holds and the split does not: 70 % of FY31 sits on two chips, while chips 9, 7 and 4 are planned at under a tenth of theirs. We would rebalance before an institutional round.',
   cite: 'Master whitepaper v3, §13, p.\u00a063',
   // The whitepaper numbers chips 1-10 (its p. 67 table: 9 = vehicle gateway, 10 = drone brain); the rest of
   // the site names them by SKU. The key keeps the quote verbatim and still readable against /applications.

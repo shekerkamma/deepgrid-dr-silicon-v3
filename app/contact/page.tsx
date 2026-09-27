@@ -75,7 +75,6 @@ export default function Page() {
     <Shell route="contact">
       <section className="page-wrap">
         <SectionHead
-          tag="09 / CONTACT"
           title="Tell us the motor, the control requirement and the sensing constraint"
           copy="Those three decide which DG32 variant fits, which reference design applies, and which support tier you need. Everything else can follow."
         />
@@ -184,10 +183,12 @@ export default function Page() {
                 <p className="dr-kicker">REGISTERED OFFICE</p>
                 <h3 className="dr-group-name">DeepGrid Semi Pvt Ltd</h3>
               </div>
-              <p className="dr-group-why">Hyderabad, Telangana, India</p>
+              <p className="dr-group-why">T-Hub, Floor-7, Hyderabad, Telangana, India</p>
             </div>
             <div className="dr-links">
               <a className="text-link" href={'mailto:' + CONTACT_EMAIL}><Mail size={16} aria-hidden="true"/> {CONTACT_EMAIL}</a>
+              <a className="text-link" href={'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('DG32 demonstration request')}>Book a demonstration <ArrowUpRight size={16} aria-hidden="true"/></a>
+              <a className="text-link" href="https://www.openstreetmap.org/search?query=T-Hub%2C%20Knowledge%20City%2C%20Hyderabad" target="_blank" rel="noopener noreferrer">Find us on the map <ArrowUpRight size={16} aria-hidden="true"/></a>
               <a className="text-link" href="https://github.com/shekerkamma/deepgrid-dr-silicon-v3" rel="noreferrer noopener" target="_blank">Source repository <ArrowUpRight size={16} aria-hidden="true"/></a>
             </div>
           </div>

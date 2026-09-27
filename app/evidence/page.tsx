@@ -101,7 +101,6 @@ export default function Page() {
     <Shell route="evidence">
       <section className="page-wrap">
         <SectionHead
-          tag="04 / EVIDENCE"
           title="Every figure says how it was obtained"
           copy="DG32 is pre-silicon as of September 2026, and it is the furthest along of DeepGrid's ten chips. This page takes each kind of evidence behind the site's numbers in turn, with the moment in the narrated films where it is explained, then says what the other nine chips rest on."
         />

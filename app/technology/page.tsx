@@ -20,7 +20,6 @@ export default function Page() {
     <Shell route="technology">
       <section className="page-wrap">
         <SectionHead
-          tag="02 / ARCHITECTURE"
           title="Two chips, one frozen safety core"
           copy="DG32-LITE is the lockstep motor-control SoC; DG32-2DOM adds an INT8 attention engine on its own clock. Choose one for its diagram, every block and why it exists, the constraints that shaped it and how data moves through it, or see the die as recorded for tape-in."
         />

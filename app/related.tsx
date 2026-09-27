@@ -25,7 +25,6 @@ export default function Related({route}: {route: RouteId}) {
           return (
             <li key={s.id}>
               <a href={url(t.href) + (s.query ? '?' + s.query : '')}>
-                <span className="dr-related-tag">{t.tag ?? t.label}</span>
                 <span className="dr-related-name">{t.label}<ArrowUpRight size={15} aria-hidden="true"/></span>
                 <span className="dr-related-why">{s.why}</span>
               </a>

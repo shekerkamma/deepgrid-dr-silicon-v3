@@ -144,7 +144,7 @@
   font: 1.75rem / 1.1 var(--serif);
   color: var(--copper);
 }
-.st-figs p {
+.st-figs .st-fig-note {
   margin: 0;
   font-size: var(--text-control);
   line-height: 1.5;
@@ -237,7 +237,7 @@
   padding: 18px 0;
   border-bottom: 1px solid var(--rule);
 }
-.st-task h4 {
+.st-task h3 {
   margin: 0 0 4px;
   font-size: var(--sc-t-body);
   font-weight: 600;

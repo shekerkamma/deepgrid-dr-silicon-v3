@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Build-free local gate: serves dist/pages under the same base path Pages uses, then runs the
-# route gate against it. The base path matters -- a build packaged for /deepgrid-dr-silicon-v2/
+# route gate against it. The base path matters -- a build packaged for /deepgrid-dr-silicon-v3/
 # served at / fails every link check for the wrong reason.
 set -euo pipefail
 
-BASE_PATH="${PAGES_BASE:-/deepgrid-dr-silicon-v2/}"
+BASE_PATH="${PAGES_BASE:-/deepgrid-dr-silicon-v3/}"
 SLUG="$(echo "$BASE_PATH" | tr -d '/')"
 PORT="${PORT:-8768}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

@@ -1,6 +1,6 @@
 # DG32 silicon site
 
-**Live: https://shekerkamma.github.io/deepgrid-dr-silicon-v2/**
+**Live: https://shekerkamma.github.io/deepgrid-dr-silicon-v3/**
 
 The public site for DeepGrid Semi's DG32 motor-control silicon: DG32-LITE, a dual-core lockstep
 RISC-V SoC, and DG32-2DOM, the same chip plus an INT8 attention engine. Pre-silicon: every figure
@@ -43,7 +43,7 @@ npm run typecheck
 npm run build:pages          # static export + packaging, fails if a declared route did not export
 
 npm run verify                   # serve dist/pages at the real base path, then gate it
-npm run verify:url -- https://shekerkamma.github.io/deepgrid-dr-silicon-v2/   # gate the live site
+npm run verify:url -- https://shekerkamma.github.io/deepgrid-dr-silicon-v3/   # gate the live site
 ```
 
 `PAGES_BASE` and `NEXT_PUBLIC_PAGES_BASE` must agree. The first tells the packager where to
@@ -60,40 +60,9 @@ leaves a stale package on disk for the next `verify` to read.
 
 ## Deploying
 
-**v2 is the only source.** `deepgrid-dr-silicon` and `deepgrid-dr-silicon_new` are mirrors of it,
-serving the same commit at their own base paths. They are independent repositories, not forks.
-One push to v2 updates all three automatically — the `mirror` job below is configured and live.
-Never commit to a mirror: the sync is a force-push and will discard it silently.
-
-```bash
-npm run sync        # push main to all three, then wait for and report all three deployments
-```
-
-The workflow also has a `mirror` job that does this in CI after `verify-live` passes, so one push
-to v2 updates all three. It is already configured.
-
-It authenticates with **one SSH deploy key per mirror**, not a personal access token.
-`GITHUB_TOKEN` is scoped to the repository running the workflow and cannot push elsewhere, but the
-obvious alternative, an account PAT, carries `repo` across every repository the owner has. A deploy
-key is write access to exactly one repo, which is all this job needs, and revoking one is deleting
-one key from one repo.
-
-| Secret on v2 | Grants write to |
-|---|---|
-| `MIRROR_KEY_DEEPGRID_DR_SILICON` | `deepgrid-dr-silicon` only |
-| `MIRROR_KEY_DEEPGRID_DR_SILICON_NEW` | `deepgrid-dr-silicon_new` only |
-
-To rotate or revoke: delete the key from that repo's Settings → Deploy keys, generate a new
-`ed25519` pair, add the public half there, and set the private half as the matching secret on v2.
-If a secret is missing the job prints a notice and exits clean, so a missing credential never fails
-a green build; `npm run sync` still works without any of this.
-
-Push to `main`. `.github/workflows/pages.yml` runs typecheck, builds, gates the build in a
-browser, deploys through `actions/deploy-pages`, then re-runs the same gate against the live URL
-once Pages serves that commit. A red gate stops the deploy.
-
-Pages is configured as `build_type: workflow` from `main`. The `github-pages` environment must
-list `main` in its deployment branch policy or the deploy job fails before running a step.
+**v3 is independent.** Built from v2 (`deepgrid-dr-silicon-v2` @ 6500f79) on 2026-09-27 and not synced with
+it or any other repository in either direction. This repository deploys only itself, to
+`/deepgrid-dr-silicon-v3/`; there are no mirror remotes, no mirror keys and no sync script.
 
 ## Gates, and why each exists
 

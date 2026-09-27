@@ -188,7 +188,7 @@ export default function Page() {
             </div>
             <div className="dr-links">
               <a className="text-link" href={'mailto:' + CONTACT_EMAIL}><Mail size={16} aria-hidden="true"/> {CONTACT_EMAIL}</a>
-              <a className="text-link" href="https://github.com/shekerkamma/deepgrid-dr-silicon-v2" rel="noreferrer noopener" target="_blank">Source repository <ArrowUpRight size={16} aria-hidden="true"/></a>
+              <a className="text-link" href="https://github.com/shekerkamma/deepgrid-dr-silicon-v3" rel="noreferrer noopener" target="_blank">Source repository <ArrowUpRight size={16} aria-hidden="true"/></a>
             </div>
           </div>
           <div className="dr-notclaimed">

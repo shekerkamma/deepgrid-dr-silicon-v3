@@ -42,7 +42,7 @@ wrong and why it matters, and leave the change to the implementer.
 ### 1. Build and serve
 ```bash
 mkdir -p /tmp/design-review
-npm run build:pages > /tmp/design-review/build.log 2>&1; echo "exit $?"
+PAGES_BASE=/deepgrid-dr-silicon-v3/ NEXT_PUBLIC_PAGES_BASE=/deepgrid-dr-silicon-v3/ npm run build:pages > /tmp/design-review/build.log 2>&1; echo "exit $?"
 python3 ~/.claude/skills/e2e-qa-review/scripts/serve_pages.py dist/pages deepgrid-dr-silicon-v3 8790 &
 ```
 A non-zero build exit is a Blocker; stop and report it with the last lines of the log.

@@ -5,8 +5,10 @@ https://shekerkamma.github.io/deepgrid-dr-silicon-v3/. Independent repository: n
 
 ## Build and verify
 
-- `npm run typecheck`, then `npm run build:pages` (runs the content and class checks, then packages
-  `dist/pages`). Never `npm run build` alone: it clears `dist/` without producing `dist/pages`.
+- `npm run typecheck`, then build with the same base path CI uses:
+  `PAGES_BASE=/deepgrid-dr-silicon-v3/ NEXT_PUBLIC_PAGES_BASE=/deepgrid-dr-silicon-v3/ npm run build:pages`
+  (runs the content and class checks, then packages `dist/pages`). Without both variables packaging fails
+  with `Unprefixed link: /`. Never `npm run build` alone: it clears `dist/` without producing `dist/pages`.
 - Read a build's exit code directly (`; echo "exit $?"`); a piped build hides failure.
 - Serve the build the way Pages does:
   `python3 ~/.claude/skills/e2e-qa-review/scripts/serve_pages.py dist/pages deepgrid-dr-silicon-v3 8790`
